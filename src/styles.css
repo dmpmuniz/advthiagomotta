@@ -37,7 +37,8 @@
   --line: rgba(207, 163, 90, 0.5);
   --line-soft: rgba(207, 163, 90, 0.22);
 
-  --sans: "Montserrat", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-title: "Times New Roman", Times, Georgia, serif;
+  --font-body: "Montserrat", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 *,
@@ -56,7 +57,7 @@ body {
   margin: 0;
   background: radial-gradient(140% 60% at 50% 0%, #fcf9f4 0%, var(--ivory) 58%);
   color: var(--ink);
-  font-family: var(--sans);
+  font-family: var(--font-body);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -146,13 +147,20 @@ button {
 
 .portrait__fallback {
   grid-area: 1 / 1;
-  width: 58%;
-  height: auto;
+  display: grid;
+  place-items: center;
+  color: var(--gold-ink);
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-indent: 0.08em;
 }
 
 .name {
   margin: 1.4rem 0 0;
   line-height: 0;
+  font-family: var(--font-title);
 }
 
 .name img {
@@ -248,7 +256,7 @@ button {
 }
 
 .contact__icon {
-  width: clamp(1.35rem, 6.5vw, 1.65rem);
+  width: clamp(1.6rem, 7vw, 2rem);
   height: auto;
   color: var(--ink);
   transition: color 180ms ease;
@@ -423,7 +431,7 @@ button {
   }
 
   .contact__icon {
-    width: 1.6rem;
+    width: 1.8rem;
   }
 
   .actions {

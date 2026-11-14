@@ -6,6 +6,7 @@
  */
 export const profile = {
   name: "Thiago Motta",
+  initials: "TM",
   profession: "Advogado",
   registration: "OAB/SP 522.201",
 

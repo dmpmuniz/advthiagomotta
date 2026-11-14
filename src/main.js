@@ -4,9 +4,22 @@ import { buildVCard, vcardFileName } from "./vcard.js";
 
 const $ = (id) => document.getElementById(id);
 
+function getInitials() {
+  const configured = String(profile.initials ?? "").replace(/\s+/g, "");
+  if (configured) return configured.toUpperCase();
+  return String(profile.name ?? "")
+    .trim()
+    .split(/\s+/)
+    .map((word) => word[0] ?? "")
+    .join("")
+    .slice(0, 3)
+    .toUpperCase();
+}
+
 function renderIdentity() {
   $("name-img").alt = profile.name ?? "";
   $("profession-img").alt = profile.profession ?? "";
+  $("portrait-fallback").textContent = getInitials();
 
   const profession = $("profession");
   const registration = $("registration");

@@ -96,8 +96,9 @@ caso use o domínio em `siteUrl`.
 - Open Graph e Twitter Card. A imagem `public/og-image.png` é estática: se o
   nome, a profissão ou o registro mudarem, gere uma nova imagem 1200 × 630.
 - Favicon em `public/favicon.svg` e ícone de toque em `public/apple-touch-icon.png`.
-- Fontes self-hosted (Cormorant Garamond e Jost), com preload e fallback. As
-  licenças SIL OFL estão em `public/fonts/`.
+- Fontes self-hosted (Montserrat para textos e subtítulos, Times New Roman para
+  títulos editoriais), com preload e fallback. As licenças SIL OFL estão em
+  `public/fonts/`.
 - Foco visível, alvos de toque confortáveis, ícones decorativos com
   `aria-hidden`, links externos identificados para leitores de tela e respeito a
   `prefers-reduced-motion`.

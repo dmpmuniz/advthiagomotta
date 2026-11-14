@@ -8,7 +8,7 @@
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#FDF8F0" />
 
-    <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
     {{#photo}}
@@ -60,15 +60,7 @@
       <main class="card">
         <header class="identity">
           <div class="portrait" id="portrait">
-            <img
-              class="portrait__fallback"
-              id="portrait-fallback"
-              src="/brand/monograma-fundo-claro.png"
-              alt=""
-              width="365"
-              height="311"
-              aria-hidden="true"
-            />
+            <span class="portrait__fallback" id="portrait-fallback" aria-hidden="true"></span>
             <img
               class="portrait__img"
               id="portrait-img"
