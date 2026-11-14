@@ -4,43 +4,16 @@ import { buildVCard, vcardFileName } from "./vcard.js";
 
 const $ = (id) => document.getElementById(id);
 
-function getInitials() {
-  const configured = String(profile.initials ?? "").replace(/\s+/g, "");
-  if (configured) return configured.toUpperCase();
-  return String(profile.name ?? "")
-    .trim()
-    .split(/\s+/)
-    .map((word) => word[0] ?? "")
-    .join("")
-    .slice(0, 3)
-    .toUpperCase();
-}
+function renderIdentity() {
+  $("name-img").alt = profile.name ?? "";
+  $("profession-img").alt = profile.profession ?? "";
 
-function renderMonogram(initials) {
-  const monogram = $("monogram");
-  monogram.textContent = "";
-
-  for (const letter of Array.from(initials)) {
-    const span = document.createElement("span");
-    span.className = "monogram__letter";
-    span.textContent = letter;
-    monogram.append(span);
-  }
-}
-
-function renderIdentity(initials) {
-  const name = $("name");
   const profession = $("profession");
   const registration = $("registration");
-
-  name.textContent = profile.name ?? "";
-  profession.textContent = profile.profession ?? "";
   registration.textContent = profile.registration ?? "";
 
   if (!profile.profession) profession.remove();
   if (!profile.registration) registration.remove();
-
-  $("portrait-fallback").textContent = initials;
 }
 
 function renderPhoto() {
@@ -135,9 +108,7 @@ function downloadContact() {
   $("download-status").textContent = "Contato pronto para salvar.";
 }
 
-const initials = getInitials();
-renderMonogram(initials);
-renderIdentity(initials);
+renderIdentity();
 renderPhoto();
 renderContacts();
 

@@ -6,11 +6,10 @@
  */
 export const profile = {
   name: "Thiago Motta",
-  initials: "TM",
   profession: "Advogado",
   registration: "OAB/SP 522.201",
 
-  // Caminho de uma fotografia real. Sem foto, o cartão exibe as iniciais.
+  // Caminho de uma fotografia real. Sem foto, o cartão exibe o monograma da marca.
   // Ex.: "images/profile.jpg" (arquivo dentro de public/images/).
   photo: "",
 
