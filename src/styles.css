@@ -248,7 +248,7 @@ button {
   aspect-ratio: 1;
   border: 1px solid var(--line);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.14);
+  background: var(--brand-brown);
   transition:
     transform 180ms ease,
     border-color 180ms ease,
@@ -256,9 +256,9 @@ button {
 }
 
 .contact__icon {
-  width: clamp(1.6rem, 7vw, 2rem);
+  width: clamp(1.8rem, 8vw, 2.1rem);
   height: auto;
-  color: var(--ink);
+  color: var(--gold);
   transition: color 180ms ease;
 }
 
@@ -354,7 +354,7 @@ button {
   }
 
   .contact:hover .contact__icon {
-    color: var(--gold-ink);
+    color: var(--gold);
   }
 
   .contact:hover .contact__label {
@@ -431,7 +431,7 @@ button {
   }
 
   .contact__icon {
-    width: 1.8rem;
+    width: 2rem;
   }
 
   .actions {
@@ -520,7 +520,7 @@ button {
   }
 
   .contact__icon {
-    width: 1.55rem;
+    width: 2rem;
   }
 
   .contact__label {
