@@ -61,23 +61,24 @@ const builders = {
   },
 };
 
-const labels = [
-  ["whatsapp", "WhatsApp", "whatsapp"],
-  ["instagram", "Instagram", "instagram"],
-  ["facebook", "Facebook", "facebook"],
-  ["phone", "Telefone", "phone"],
-  ["website", "Site", "globe"],
-  ["email", "E-mail", "mail"],
-];
-
 const external = new Set(["whatsapp", "instagram", "facebook", "website"]);
+
+/** Ordem e aparência dos seis espaços da grade, com ou sem link. */
+export const contactSlots = [
+  { key: "whatsapp", label: "WhatsApp", icon: "whatsapp", external: false },
+  { key: "instagram", label: "Instagram", icon: "instagram", external: false },
+  { key: "facebook", label: "Facebook", icon: "facebook", external: false },
+  { key: "phone", label: "Telefone", icon: "phone", external: false },
+  { key: "website", label: "Site", icon: "globe", external: false },
+  { key: "email", label: "E-mail", icon: "mail", external: false },
+].map((slot) => ({ ...slot, external: external.has(slot.key) }));
 
 /**
  * Retorna apenas os contatos configurados e com destino válido, na ordem da grade.
  */
 export function buildContactLinks(contacts = {}) {
-  return labels.flatMap(([key, label, icon]) => {
+  return contactSlots.flatMap(({ key, label, icon, external: isExternal }) => {
     const href = builders[key](contacts[key]);
-    return href ? [{ key, label, icon, href, external: external.has(key) }] : [];
+    return href ? [{ key, label, icon, href, external: isExternal }] : [];
   });
 }

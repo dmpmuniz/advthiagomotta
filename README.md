@@ -24,8 +24,12 @@ omitidos da página e do vCard; nenhum contato fictício é gerado.
   em um placeholder elegante.
 - **Contatos:** WhatsApp em formato DDI + DDD + número; Instagram e Facebook
   aceitam `@usuario` ou URL; telefone aceita formatação; site aceita domínio sem
-  `https://`; e-mail precisa ser válido. Contatos inválidos ou vazios não
-  aparecem.
+  `https://`; e-mail precisa ser válido. Contatos inválidos ou vazios aparecem
+  como espaço de prévia, sem link.
+- **`showContactPlaceholders`:** `true` mostra os seis espaços da grade mesmo sem
+  dados, com círculo tracejado e ícone apagado, para visualizar o layout. Não são
+  clicáveis nem anunciados por leitores de tela. Defina `false` quando quiser
+  exibir apenas os contatos reais — sem nenhum contato, a seção desaparece.
 - **Organização e endereço:** opcionais, entram apenas no vCard.
 - **`siteUrl`:** preencha com a URL pública final, sem barra no fim, depois do
   deploy. Isso gera `og:url`, `canonical` e a imagem Open Graph absoluta.

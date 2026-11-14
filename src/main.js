@@ -1,5 +1,5 @@
 import { profile } from "./profile.js";
-import { buildContactLinks } from "./links.js";
+import { buildContactLinks, contactSlots } from "./links.js";
 import { buildVCard, vcardFileName } from "./vcard.js";
 
 const $ = (id) => document.getElementById(id);
@@ -54,10 +54,11 @@ function renderPhoto() {
 }
 
 function renderContacts() {
-  const contacts = buildContactLinks(profile.contacts);
+  const links = new Map(buildContactLinks(profile.contacts).map((item) => [item.key, item]));
   const list = $("contacts");
+  const showPlaceholders = profile.showContactPlaceholders !== false;
 
-  if (!contacts.length) {
+  if (!links.size && !showPlaceholders) {
     $("contact-section").remove();
     return;
   }
@@ -77,34 +78,43 @@ function renderContacts() {
     return svg;
   }
 
-  for (const contact of contacts) {
+  for (const slot of contactSlots) {
+    const contact = links.get(slot.key);
     const item = document.createElement("li");
-    const link = document.createElement("a");
-    link.className = "contact";
-    link.href = contact.href;
+    const content = document.createElement(contact ? "a" : "span");
+    content.className = contact ? "contact" : "contact contact--placeholder";
 
-    if (contact.external) {
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
+    if (!contact) {
+      // Espaço vazio: só prévia visual do layout, não é um contato.
+      item.setAttribute("aria-hidden", "true");
+    }
+
+    if (contact) {
+      content.href = contact.href;
+
+      if (contact.external) {
+        content.target = "_blank";
+        content.rel = "noopener noreferrer";
+      }
     }
 
     const circle = document.createElement("span");
     circle.className = "contact__circle";
-    circle.append(icon(contact.icon));
+    circle.append(icon(slot.icon));
 
     const label = document.createElement("span");
     label.className = "contact__label";
-    label.textContent = contact.label;
+    label.textContent = slot.label;
 
-    if (contact.external) {
+    if (contact?.external) {
       const hint = document.createElement("span");
       hint.className = "sr-only";
       hint.textContent = " (abre em nova aba)";
       label.append(hint);
     }
 
-    link.append(circle, label);
-    item.append(link);
+    content.append(circle, label);
+    item.append(content);
     list.append(item);
   }
 }

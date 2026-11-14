@@ -330,6 +330,15 @@ button {
   background: rgba(196, 154, 69, 0.1);
 }
 
+.contact--placeholder {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.contact--placeholder .contact__circle {
+  border-style: dashed;
+}
+
 .actions {
   margin-top: 1.55rem;
 }

@@ -34,6 +34,10 @@ export const profile = {
     email: "",
   },
 
+  // Mostra os espaços sem contato com o ícone apagado, só para visualizar o
+  // layout 3×2. Desative quando os contatos reais estiverem preenchidos.
+  showContactPlaceholders: true,
+
   // Opcionais, usados no vCard.
   organization: "",
   address: "",

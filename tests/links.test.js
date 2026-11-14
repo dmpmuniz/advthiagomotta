@@ -1,10 +1,17 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { buildContactLinks, normalizeWebsite } from "../src/links.js";
+import { buildContactLinks, contactSlots, normalizeWebsite } from "../src/links.js";
 
 test("sem contatos configurados, não gera links", () => {
   assert.deepEqual(buildContactLinks({}), []);
   assert.deepEqual(buildContactLinks({ whatsapp: "  ", email: "invalido" }), []);
+});
+
+test("a grade mantém os seis espaços na ordem visual", () => {
+  assert.deepEqual(
+    contactSlots.map((slot) => slot.key),
+    ["whatsapp", "instagram", "facebook", "phone", "website", "email"],
+  );
 });
 
 test("WhatsApp usa apenas dígitos e exige DDI/DDD", () => {
