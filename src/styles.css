@@ -246,9 +246,9 @@ button {
   width: 100%;
   max-width: 6.5rem;
   aspect-ratio: 1;
-  border: 1px solid var(--line);
+  border: 1px solid var(--brand-brown);
   border-radius: 50%;
-  background: var(--brand-brown);
+  background: var(--brand-ivory);
   transition:
     transform 180ms ease,
     border-color 180ms ease,
@@ -258,7 +258,7 @@ button {
 .contact__icon {
   width: clamp(1.8rem, 8vw, 2.1rem);
   height: auto;
-  color: var(--gold);
+  color: var(--ink);
   transition: color 180ms ease;
 }
 
