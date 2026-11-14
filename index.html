@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{{name}} — {{profession}}</title>
+    <meta name="description" content="{{description}}" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#FAF6EF" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preload" href="/fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin />
+    {{#photo}}
+    <link rel="preload" href="{{photo}}" as="image" />
+    {{/photo}}
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="{{ogTitle}}" />
+    <meta property="og:description" content="{{description}}" />
+    <meta property="og:image" content="{{ogImage}}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="{{ogTitle}}" />
+    {{#siteUrl}}
+    <meta property="og:url" content="{{siteUrl}}" />
+    <link rel="canonical" href="{{siteUrl}}" />
+    {{/siteUrl}}
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.5L3.5 20.5l1.4-4.3a8.5 8.5 0 1 1 15.6-4.5Z" />
+        <path d="M9.1 7.9c.2-.4.4-.5.7-.5h.5c.2 0 .4.1.5.5l.7 1.7c.1.2 0 .4-.1.6l-.5.6c-.1.2-.2.4 0 .6.5.9 1.4 1.7 2.3 2.2.2.1.4.1.6-.1l.6-.7c.2-.2.4-.3.6-.2l1.8.8c.2.1.4.3.4.5v.4c0 .5-.3.9-.7 1.1-.4.2-1 .4-1.7.2-1.2-.3-2.4-.9-3.4-1.8-1-.9-1.7-2-2-3.1-.2-.7-.1-1.3.2-1.8Z" />
+      </symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="5.2" />
+        <circle cx="12" cy="12" r="4.1" />
+        <circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none" />
+      </symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M13.7 21v-8h2.7l.4-3h-3.1V8.3c0-.9.3-1.4 1.5-1.4h1.6V4.2c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1V10H8v3h2.4v8" />
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z" />
+      </symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M2 12h20" />
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z" />
+      </symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2" />
+        <path d="m22 6-10 7L2 6" />
+      </symbol>
+    </svg>
+
+    <div class="page">
+      <main class="card">
+        <header class="identity">
+          <div class="monogram" id="monogram" aria-hidden="true"></div>
+
+          <div class="portrait" id="portrait">
+            <span class="portrait__fallback" id="portrait-fallback" aria-hidden="true"></span>
+            <img
+              class="portrait__img"
+              id="portrait-img"
+              alt=""
+              width="320"
+              height="320"
+              decoding="async"
+              fetchpriority="high"
+              hidden
+            />
+          </div>
+
+          <h1 class="name" id="name">{{name}}</h1>
+          <p class="profession" id="profession">{{profession}}</p>
+          <p class="registration" id="registration">{{registration}}</p>
+        </header>
+
+        <div class="ornament" aria-hidden="true"><span></span></div>
+
+        <nav class="contact-section" id="contact-section" aria-label="Formas de contato">
+          <ul class="contacts" id="contacts"></ul>
+        </nav>
+
+        <div class="actions">
+          <button class="button" id="save-contact" type="button">Adicionar aos meus contatos</button>
+          <p class="status" id="download-status" role="status"></p>
+          <noscript>
+            <p class="status">Ative o JavaScript para acessar os contatos e salvar o vCard.</p>
+          </noscript>
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
